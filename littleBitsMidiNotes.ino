@@ -4,7 +4,7 @@
 #define CLOCK_PIN 3
 #define SPEEDFACTOR 64
 #define MIN_NOTE 24
-#define MAX_NOTE MIN_NOTE+62
+#define MAX_NOTE MIN_NOTE+61
 
 unsigned long count = 0;
 
