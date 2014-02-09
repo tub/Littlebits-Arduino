@@ -46,12 +46,11 @@ void loop() {
         analogWrite(NOTE_PIN, analogVal);
         //send a trigger pulse
         digitalWrite(NOTE_TRIGGER_PIN, HIGH);
-        delay(1);
-        digitalWrite(NOTE_TRIGGER_PIN, LOW);        
       }
     }
     if(e.type == NOTEOFF && e.m2 == currentNote){
       analogWrite(NOTE_PIN, 0);
+      digitalWrite(NOTE_TRIGGER_PIN, LOW);   
     }
     if(e.type == CC && e.m2 == 1){ 
       // cc 1
