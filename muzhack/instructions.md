@@ -38,7 +38,7 @@ Now, this option may not be suitable for any beginner solderers out there, it in
 
 The eagle files and printable board for the little adapter board are up on the [project's github](https://github.com/tub/Littlebits-Arduino/tree/master/adapter-board-files).
 
-It was very nicely laid out and etched for me by [Alex](https://github.com/alexanderhosford) at [my local hackspace](http://www.buildbrighton.com/) (I was feeling lazy and he's easily persuaded). I won't go into the PCB making details in this instructable, but there's many other guides on how to make them, e.g
+It was very nicely laid out and etched for me by [Alex](https://github.com/alexanderhosford) at [my local hackspace](http://www.buildbrighton.com/) (I was feeling lazy and he's easily persuaded). I won't go into the PCB making details in this manual, but there's many other guides on how to make them, e.g
 
 * http://www.instructables.com/id/Etching-Method-and-Sticker-Method-of-PCB-fabricati/
 * http://www.instructables.com/id/How-to-Etch-a-PCB/
@@ -81,23 +81,23 @@ In order to make the MIDI side of this project really easy, I've used a modified
 
 Once it's installed and you've restarted the Arduino software, make sure you select the *"Arduino Leonardo (arcore)"* board from the Board menu as shown in the picture.
 
-### The sketch
+## The sketch
 
 The Arduino sketch, which is on [my github project](https://github.com/tub/Littlebits-Arduino), does several things with the MIDI data it receives.
 
-### MIDI Clock
+## MIDI Clock
 
 When the Arduino is sent a MIDI clock signal, it will pull pin 3 high, and output an inverted pulse for every beat. When a stop signal is sent, pin 3 will go back to 0v. This allows us to hook up a MIDI clock to trigger the micro-sequencer littlebit, and keep it in time.
 
-### MIDI Notes
+## MIDI Notes
 
 If note data is sent to the Arduino, pin 5 is set to a voltage proportional to the note's frequency, which allows us to use MIDI notes as a control voltage. e.g. to control an oscillator's pitch. Pin 4 will get a pulse sent to it when a note-on is fired, this allows us to trigger envelopes or other bits when a note is pressed.
 
-### MIDI CC messages
+## MIDI CC messages
 
 Pin 6 will output a voltage proportional to any MIDI Control Change #1 messages received. This allows us to link controls within software or even knobs on MIDI controllers to littlebits.
 
-### Installing the sketch
+## Installing the sketch
 Simply download the [.ino file the project page](https://github.com/tub/Littlebits-Arduino/blob/master/littleBitsMidiNotes.ino) and open it in the Arduino editor. Hit upload (remember to select the *arcore* board in the Boards menu).
 
 # Step 4: Go!
