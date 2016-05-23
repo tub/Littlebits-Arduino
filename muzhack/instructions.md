@@ -4,17 +4,17 @@ You will need the following stuff -
 
 * [LittleBits synth kit](http://littlebits.cc/kits/synth-kit)
 * EITHER
-  * 2x JST SH Jumper 3 Wire Assembly (available at Sparkfun)
+  * 2x JST SH Jumper 3 Wire Assembly (available at [Sparkfun](https://www.sparkfun.com/products/10358))
 * OR
-  * 2x JST-SH 3-pin 1mm connectors (available at Sparkfun in the US or Protopic in the UK)
-  * Materials to etch your own, small, simple PCB (unless you order them from a PCB manufacturer)
+  * 2x JST-SH 3-pin 1mm connectors (available at [Sparkfun](https://www.sparkfun.com/products/10358) in the US or [Protopic](http://proto-pic.co.uk/connector-1-0mm-horizontal-3-pin/) in the UK)
+  * **Materials to etch your own, small, simple PCB** (unless you order them from a PCB manufacturer)
     * I won't go into the details in this project, but there's many other guides on how to make them -
     http://www.instructables.com/id/How-to-Etch-a-PCB/
     http://www.instructables.com/id/Cheap-and-Easy-Toner-Transfer-for-PCB-Making/
-* An Arduino Leonardo, must be a Leonardo if you want to do USB MIDI, other Arduinos will work otherwise.
+* An **Arduino Leonardo**, must be a Leonardo if you want to do USB MIDI, other Arduinos will work otherwise.
 * [A Breadboard](http://en.wikipedia.org/wiki/Breadboard)
-* Some solid core wire, the right size to fit in the breadboard (around 1mm) like this, available at any electronics shop.
-MIDI Sequencing software, I use [Ableton Live](http://www.ableton.com/), but [Garageband](https://www.apple.com/mac/garageband/), [FL Studio](http://www.image-line.com/flstudio/) or [Reaper](http://www.reaper.fm/) (free!) will work.
+* **Some solid core wire**, the right size to fit in the breadboard (around 1mm) [like this](http://www.hobbytronics.co.uk/breadboard-wire), available at any electronics shop.
+* **MIDI Sequencing software**, I use [Ableton Live](http://www.ableton.com/), but [Garageband](https://www.apple.com/mac/garageband/), [FL Studio](http://www.image-line.com/flstudio/) or [Reaper](http://www.reaper.fm/) (free!) will work.
 
 # Step 1: Make the Connector
 
@@ -61,7 +61,7 @@ Next, just unplug the wires from the input end of the split bit and plug them in
 
 The Arduino sketch we're going to use takes advantage of the analogWrite function, which uses pulse-width modulation to fake an analogue output. This means that instead of actually turning the voltage up and down, it switches it on and off very quicky. To fake low voltages, it leaves an output mostly off but turns it on for a reeeeeeally short amount of time, thousands of times a second. To fake higher voltages it turns the output on (which is 5v) most of the time, turning it off for a tiny amount of time, again, thousands of times a second. This is better summarised on the [Secrets of Arduino PWM page](http://arduino.cc/en/Tutorial/SecretsOfArduinoPWM).
 
-Annoying this [thousands of times a second](thousands of times a second) is 490 Hz which is in the frequency range we can hear, so it turns up as a buzz on the littlebits speaker! You can hear this in the video attached to this step, it's supposed to just be a rising tone, but instead there's also the buzz. In order to get rid of this buzz we need to put the signal through a low-pass filter to smooth out the choppy waveform. We can achieve this using just a resistor and a capacitor.
+Annoying this **thousands of times a second** is 490 Hz which is in the frequency range we can hear, so it turns up as a buzz on the littlebits speaker! You can hear this in the video attached to this step, it's supposed to just be a rising tone, but instead there's also the buzz. In order to get rid of this buzz we need to put the signal through a low-pass filter to smooth out the choppy waveform. We can achieve this using just a resistor and a capacitor.
 
 The first picture shows an approximation of what I set up on my breadboard, except it's easier to follow (and says Arduino Uno, but ignore that bit).
 
@@ -98,7 +98,7 @@ If note data is sent to the Arduino, pin 5 is set to a voltage proportional to t
 Pin 6 will output a voltage proportional to any MIDI Control Change #1 messages received. This allows us to link controls within software or even knobs on MIDI controllers to littlebits.
 
 ### Installing the sketch
-Simply download the [.ino file the project page](https://github.com/tub/Littlebits-Arduino/blob/master/littleBitsMidiNotes.ino) and open it in the Arduino editor. Hit upload (remember to select the arcore board in the Boards menu).
+Simply download the [.ino file the project page](https://github.com/tub/Littlebits-Arduino/blob/master/littleBitsMidiNotes.ino) and open it in the Arduino editor. Hit upload (remember to select the *arcore* board in the Boards menu).
 
 # Step 4: Go!
 
