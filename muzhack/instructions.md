@@ -1,3 +1,5 @@
+**Please note that this is an unofficial project page, the official one is [here](http://www.instructables.com/id/USB-MIDI-Littlebits-synth/).**
+
 # Shopping List
 
 You will need the following stuff -
